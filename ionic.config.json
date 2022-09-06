@@ -1,0 +1,7 @@
+{
+  "name": "triseguros",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
