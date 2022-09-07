@@ -1,0 +1,57 @@
+ion-content.contenido {
+    --background: url('../../../assets/images/fondo-register.png') 0 0/100% 100% no-repeat;
+}
+
+.app-info{
+text-align: center;
+position:  absolute;
+left: 0px;
+right: 0px;
+top: 20%;
+font-size: 36px;
+}
+
+h1,h3{
+    color: black;
+}
+P{
+    color: black;
+    font-size: 14px;
+}
+.imagen{
+border-radius: 10%;
+width: 20%;
+}
+
+input{
+    background-color: white;
+    color: black;
+    width: 100%;
+    border-color: #2387E9;
+
+}
+
+.agente{
+    margin: 10%;
+    margin-bottom: 5%;
+    margin-top: 20%;
+    width: 303px;
+    height: 68px;
+    left: 43px;
+    top: 470px;
+    font-size: 14px;
+}
+
+.btn-w{
+    font-size: 15px;
+    background-color: #2387E9;
+    padding: 3%;
+    margin: 10%;
+    margin-top: 0%;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button{
+    background-color: #2387E9;
+}
