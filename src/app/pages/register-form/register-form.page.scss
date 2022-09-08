@@ -2,6 +2,14 @@ ion-content.contenido {
     --background: url('../../../assets/images/fondo-register-form.png') 0 0/100% 100% no-repeat;
 }
 
+@font-face { font-family: Arsenal-Bold; 
+    src: url("../../../assets/fonts/Arsenal-Bold.otf"); 
+}
+
+@font-face { font-family: Arsenal-Regular; 
+    src: url("../../../assets/fonts/Arsenal-Regular.otf"); 
+}
+
 ion-row{
     height: 10%;
     align-items: center;
@@ -24,9 +32,16 @@ input{
     margin-bottom: 5%;
     border-color: #2387E9;
     color: black;
-    padding: 11px 18px 11px 15px;
+    padding: 9px 18px 10px 15px;
     box-sizing: border-box;
     border: 1px solid #2387E9;
+    border-radius: 4px;
+}
+
+.politicas{
+    text-align: left;
+    font-family: Arsenal-Regular;
+    font-size: 50%;
 }
 
 select{
@@ -35,14 +50,15 @@ select{
     height: 100%;
     border-color: #2387E9;
     color: black;
-    padding: 12px 18px 15px 18px;
+    padding: 13px 18px 10px 15px;
     box-sizing: border-box;
     border: 1px solid #2387E9;
     color: gray;
+    border-radius: 4px;
 }
 
 form{
-    width: 80%;
+    width: 85%;
     text-align: center;
     padding: 3%;
     margin:0px auto;
@@ -55,7 +71,7 @@ button{
     background-color: #00042A;
     padding: 2%;
     border-radius: 5px;
-    margin-top: 7%;
+    margin-top: 3%;
     padding-top:6%;
     padding-bottom: 6%;
 }
@@ -65,12 +81,18 @@ button{
     margin-top: 8%;
     color:  #00042A;
     font-size: 13px;
+    font-family: Arsenal-Regular;
+}
+
+.cuenta::before {
+    background-color: white !important;
 }
 
 .app-info{
     width: 100%;
     height: 100%;
     text-align: center;
+    font-family: Arsenal-Regular;
 }
 
 .check{
@@ -78,12 +100,9 @@ button{
 }
 
 label{
-    font-family: 'Arsenal';
     font-style: normal;
-    font-weight: bold;
 }
 
 a{
     text-decoration-line: underline;
-
 }
