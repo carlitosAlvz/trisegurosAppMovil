@@ -58,6 +58,9 @@ input{
 }
 a{
     text-decoration-line: underline;
+    text-align: center;
+    color: #2B2B2B;
+    font-size: 40%;
 }
 .agente{
     margin: 10%;
@@ -80,8 +83,25 @@ a{
     margin-top: 0%;
     border-radius: 8px;
     font-weight: bold;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 button{
     background-color: #2387E9;
+}
+
+.btn-continuar{
+    font-size: 25px;
+    font-family: 'Arsenal';
+    font-style: normal;
+    padding: 1%;
+    margin:0px auto;
+    margin-top: 0%;
+    border-radius: 8px;
+    font-weight: bold;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: #00042A;
+    width: 60%;
 }
