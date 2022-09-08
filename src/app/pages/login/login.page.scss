@@ -12,12 +12,22 @@ ion-content.contenido {
     position:  absolute;
     left: 0px;
     right: 0px;
-    top: 25%;
+    top: 17%;
     color: white;
 }
 
-.imagen{
-    border-radius: 10%;
+.rectangulo{
+    width: 208px;
+    height: 208px;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 19px;
+    margin: 0 auto;
+}
+
+.image{
+    margin: calc((208px - 160px) / 2) auto;
 }
 
 #titulo{
