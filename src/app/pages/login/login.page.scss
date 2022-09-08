@@ -1,48 +1,79 @@
 ion-content.contenido {
-        --background: url('../../../assets/images/fondo.png') 0 0/100% 100% no-repeat;
+    --background: url('../../../assets/images/fondo.png') 0 0/100% 100% no-repeat;
 }
 
-.app-info{
+
+@font-face {
+    font-family: "Arsenal";
+    src: url('../../../assets/fonts/Arsenal-Regular.otf');
+}
+
+
+
+.app-info {
     text-align: center;
-    position:  absolute;
+    position: absolute;
     left: 0px;
     right: 0px;
-    top: 25%;
+    top: 17%;
     color: white;
-    font-size: 36px;
 }
 
-.imagen{
-    border-radius: 10%;
+.rectangulo {
+    width: 208px;
+    height: 208px;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 19px;
+    margin: 0 auto;
 }
 
-.botones{
-    margin-top: 15%;
-   text-align: center;
+.image {
+    margin: calc((208px - 160px) / 2) auto;
 }
 
-.btn1{
- color: white;
- background-color: #00042A;
- font-size: 20px;
- padding: 5%;
- width: 50%;
- border-radius: 5%;
+#titulo {
+    margin-top: 8%;
+    font-weight: bold;
+    font-family: 'Arsenal';
+    font-size: 40px;
 }
 
-.btn2{
- background-color: white;
- font-weight: bold;
- color: #00042A;
- font-size: 20px;
- padding: 5%;
- width: 50%;
- border-radius: 5%;
- margin-top: 10%;
- box-shadow: 1px 5px 1px 5px #c4c2c2;
+
+.botones {
+    margin-top: 25%;
+    text-align: center;
+    font-weight: bold;
 }
 
-.link{
+.btn1 {
+    color: white;
+    font-family: "Arsenal";
+    background-color: #00042A;
+    font-size: 20px;
+    padding: 5%;
+    width: 50%;
+    border-radius: 5%;
+}
+
+.btn2 {
+    background-color: white;
+    font-family: "Arsenal";
+    font-weight: bold;
+    color: #00042A;
+    font-size: 20px;
+    padding: 5%;
+    width: 50%;
+    border-radius: 5%;
+    margin-top: 5%;
+    box-shadow: 0.5px 3px 0.5px 0.5px #c4c2c2;
+    margin-bottom: 7%;
+}
+
+.link {
     font-size: medium;
     color: #a3a3a3;
+    font-weight: lighter;
+
 }
