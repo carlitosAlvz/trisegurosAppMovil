@@ -2,6 +2,12 @@ ion-content.contenido {
     --background: url('../../../assets/images/fondo-register.png') 0 0/100% 100% no-repeat;
 }
 
+@font-face {
+    font-family: "Arsenal";
+    src: url('../../../assets/fonts/Arsenal-Regular.otf');
+  }
+
+
 img{
     margin-bottom: 5%;
 }
@@ -92,16 +98,12 @@ button{
 }
 
 .btn-continuar{
-    font-size: 25px;
-    font-family: 'Arsenal';
-    font-style: normal;
-    padding: 1%;
-    margin:0px auto;
-    margin-top: 0%;
+    color: white;
+    font-family: "Arsenal";
+    background-color: #00042A;
+    font-size: 20px;
+    padding: 5%;
     border-radius: 8px;
     font-weight: bold;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    background-color: #00042A;
-    width: 60%;
+    width: 50%;
 }

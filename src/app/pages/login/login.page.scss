@@ -8,7 +8,10 @@ ion-content.contenido {
     src: url('../../../assets/fonts/Arsenal-Regular.otf');
   }
 
-
+  @font-face {
+    font-family: "Arsenal-bold";
+    src: url('../../../assets/fonts/Arsenal-Bold.otf');
+  }
 
 .app-info{
     text-align: center;
@@ -76,4 +79,87 @@ ion-content.contenido {
     color: #a3a3a3;
     font-weight: lighter;
    
+}
+
+.login{
+    margin-top: 16%;
+    padding: 5%;
+
+}
+
+.elementos1{
+text-align: left;
+margin-left: 8%;
+}
+
+
+
+.elementos2{
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 11px 188px 11px 15px;
+    gap: 10px;
+    
+}
+
+.boton{
+    position: absolute;
+    width: 44px;
+    height: 45px;
+    background: #00042A;
+    margin-left: 2%;
+    border-radius: 5px;
+
+}
+
+.input{
+    background: #FFFFFF;
+    border: 1px solid #2387E9;
+    border-radius: 4px;
+    align-items: center;
+    padding-left: 3%;
+    width: 252px;
+    height: 40px;
+}
+
+.username{
+    font-family: "Arsenal-bold";
+    font-weight: bold;
+    color: #00042A;
+    font-size: 22px;
+   
+}
+.link2{
+    font-family: "Arsenal-bold";
+    font-size: 13px;
+    color: #2387E9;
+    
+}
+
+.elementos3{
+    margin-top: 5%;
+    margin-left: 5%;
+   
+    
+}
+
+.finger{
+padding: 10% 10% 10% 10%;
+background: rgba(255, 255, 255, 0.6);
+border: 1px solid #2387E9;
+box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 67px;
+
+}
+.face{
+width: 56px;
+height: 60px;
+border: 1px solid #2387E9;
+border-radius: 7px;
+background: url('../../../assets/images/face.png');
+
 }

@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  bandBotones: Boolean = true;
+  bandLogin: Boolean = false;
+  constructor() { 
   }
 
+  ngOnInit() {
+  
+  }
+  cambiodeInterfaz(){
+    console.log("si entro");
+    this.bandBotones = false;
+    this.bandLogin = true;
+  }
 }

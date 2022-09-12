@@ -11,13 +11,38 @@
   <h1 id="titulo" class="titulos">Tri Seguros</h1>
 
 
-  <div class="botones">
-    <div> <button class="btn1">Iniciar Sesión</button> </div>
-    <div>   <button class="btn2">Registrame</button> </div>
-  <div> <a href="#" class="link">Aviso de privacidad</a> </div>
-   
+  <div class="botones" *ngIf="bandBotones">
+    <div> <button class="btn1" (click) = "cambiodeInterfaz()">Iniciar Sesión</button> </div>
+    <div>   <button class="btn2" routerLink="/register">Registrame</button> </div>
+    <div> <a href="#" class="link">Aviso de privacidad</a> </div>   
   </div>
-  
+
+  <div class="login" *ngIf="bandLogin">
+    <div class="elementos1">
+       <div class="username">Hola, Jennifer O´Hara</div>
+       <a href="#"class="link2">no es mi cuenta</a>
+    </div>
+    <div class="elementos2">
+      <form action="">
+        <input type="password" class="input" placeholder="************">
+        <button class="boton"> <img src="../../../assets/icon/login.png" alt="no image"></button>
+      </form>
+    </div>
+
+    <div class="elementos3">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="margin-left: 20%;">
+            <button class="finger"><img src="../../../assets/images/Vector.png" alt=""></button>
+          </ion-col>
+          <ion-col style="margin-right: 20%;">
+            <button class="face"></button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div> 
+  </div>
   </div>
 
 </ion-content>
