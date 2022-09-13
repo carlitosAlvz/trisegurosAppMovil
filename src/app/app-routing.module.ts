@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'register-form',
     loadChildren: () => import('./pages/register-form/register-form.module').then( m => m.RegisterFormPageModule)
   },
+  {
+    path: 'face-id',
+    loadChildren: () => import('./pages/face-id/face-id.module').then( m => m.FaceIdPageModule)
+  },
 
 
 ];
