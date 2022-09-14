@@ -15,8 +15,8 @@ export class LoginPage implements OnInit {
   
   }
   cambiodeInterfaz(){
-    console.log("si entro");
     this.bandBotones = false;
     this.bandLogin = true;
+    
   }
 }
