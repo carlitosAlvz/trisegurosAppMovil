@@ -8,6 +8,7 @@ import { FaceIdPageRoutingModule } from './face-id-routing.module';
 
 import { FaceIdPage } from './face-id.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,4 +18,6 @@ import { FaceIdPage } from './face-id.page';
   ],
   declarations: [FaceIdPage]
 })
-export class FaceIdPageModule {}
+export class FaceIdPageModule {
+  
+}
