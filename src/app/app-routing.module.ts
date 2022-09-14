@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'register-form',
     loadChildren: () => import('./pages/register-form/register-form.module').then( m => m.RegisterFormPageModule)
   },
+  {
+    path: 'pwa',
+    loadChildren: () => import('./pages/pwa/pwa.module').then( m => m.PwaPageModule)
+  },
 
 
 ];
