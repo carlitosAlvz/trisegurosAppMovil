@@ -1,11 +1,11 @@
 <ion-header>
- 
+
 </ion-header>
 
-<ion-content  class="contenido">
-  <div class = "app-info">
+<ion-content class="contenido">
+  <div class="app-info">
     <div class="rectangulo">
-    <img src="../../../assets/images/logo.png" class="image"> 
+      <img src="../../../assets/images/logo.png" class="image">
     </div>
 
 
@@ -65,6 +65,43 @@
     </div>
     <div style="margin-top: 10%;"> <a href="#" class="link" >Aviso de privacidad</a> </div> 
   </div>
+
+    <h1 id="titulo" class="titulos">Tri Seguros</h1>
+
+
+    <div class="botones" *ngIf="bandBotones">
+      <div> <button class="btn1" (click)="cambiodeInterfaz()">Iniciar Sesión</button> </div>
+      <div> <button class="btn2" routerLink="/register">Registrame</button> </div>
+      <div> <a href="#" class="link">Aviso de privacidad</a> </div>
+    </div>
+
+    <div class="login" *ngIf="bandLogin">
+
+      <div class="elementos2">
+        <form [formGroup]="horizontalStepperForm">
+          <input formControlName="usuario" type="text" class="input" placeholder="Ingrese correo">
+          <input formControlName="contra" type="password" class="input" placeholder="************">
+          <button class="boton" (click)="enviarDatos()"
+            [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid"> <img
+              src="../../../assets/icon/login.png" alt="no image"></button>
+        </form>
+      </div>
+
+      <div class="elementos3">
+        <ion-grid>
+          <ion-row>
+            <ion-col style="margin-left: 20%;">
+              <button class="finger"><img src="../../../assets/images/Vector.png" alt=""></button>
+            </ion-col>
+            <ion-col style="margin-right: 20%;">
+              <button class="face"></button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+    </div>
   </div>
+  
 
 </ion-content>

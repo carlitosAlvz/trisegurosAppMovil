@@ -4,60 +4,61 @@
 
 <ion-content class="contenido">
   <div class="app-info">
-    <form>
+    <form [formGroup]="horizontalStepperForm">
       <ion-row>
         <label >Nombre completo</label>
       </ion-row>
       <ion-row>
-        <input type="text">
+        <input type="text" formControlName="nombre">
       </ion-row>
       <ion-row>
         <label >Celular</label>
       </ion-row>
       <ion-row  >
-        <ion-col size="4" style="margin-bottom:1%;"><select name="select">
-          <option value="value1" selected>+52</option>
-          <option value="value2">Value 2</option>
-          <option value="value3">Value 3</option>
+        <ion-col size="4" style="margin-bottom:1%;"><select name="select" formControlName="lada">
+          <option value="+52" selected>+52</option>
+          <option value="value 2">Value 2</option>
+          <option value="value 3">Value 3</option>
         </select></ion-col>
-        <ion-col><input type="text"></ion-col>
+        <ion-col><input type="text" formControlName="numero_telefono"></ion-col>
       </ion-row>
       <ion-row>
         <label >Correo electronico</label>
       </ion-row>
       <ion-row>
-        <input type="text">
+        <input type="email" formControlName="correo">
       </ion-row>
       <ion-row>
         <label >RFC con Homoclave</label>
       </ion-row>
       <ion-row>
-        <input type="text" placeholder="xxxx000000xxx">
+        <input type="text" placeholder="xxxx000000xxx" formControlName="rfc">
       </ion-row>
       <ion-row>
         <label >Fecha de nacimiento</label>
       </ion-row>
       <ion-row>
-        <input type="text" placeholder="DD/MM/AAAA">
+        <input type="text" placeholder="DD/MM/AAAA" formControlName="fecha_nacimiento">
       </ion-row>
       <ion-row>
         <label >Contraseña</label>
       </ion-row>
       <ion-row>
-        <input type="password" placeholder="**********">
+        <input type="password" placeholder="**********" formControlName="contra">
       </ion-row>
       <ion-row>
         <label >Confirmar contraseña</label>
       </ion-row>
       <ion-row>
-        <input type="password" placeholder="**********">
+        <input type="password" placeholder="**********" formControlName="confirmar_contra">
       </ion-row>
       <ion-row>
-        <ion-col size="1"><input type="checkbox" class="check"></ion-col>
+        <ion-col size="1"><input type="checkbox" class="check" formControlName="aviso_privacidad"></ion-col>
         <ion-col size="9"><label style="font-size: 12px;" class="politicas">Acepto haber leído el <a style="text-decoration-line: underline;"> Aviso de Privacidad</a></label></ion-col>
       </ion-row>
       <ion-row class="button">
-        <button>Registrarme</button>
+        <button (click)="enviarRegistro()"
+        [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid">Registrarme</button>
       </ion-row>
       <ion-row class="button">
         <a class="cuenta">Ya tengo una cuenta</a>

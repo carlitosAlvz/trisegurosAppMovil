@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeBiometric, AvailableResult } from 'capacitor-native-biometric';
+import { Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router,ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,11 +13,16 @@ export class LoginPage implements OnInit {
   bandBotones: Boolean = true;
   bandLogin: Boolean = false;
   bandForm: Boolean = false;
-  constructor() { 
+
+  horizontalStepperForm = new FormGroup({
+    usuario: new FormControl('', Validators.required),
+    contra: new FormControl('', Validators.required),
+  })
+  constructor(private route: ActivatedRoute,
+    private router: Router  ) { 
   }
 
   ngOnInit() {
-  
   }
   cambiodeInterfaz(){
     this.bandBotones = false;
@@ -68,5 +77,11 @@ export class LoginPage implements OnInit {
         });
       }
     });
+  }
+
+  enviarDatos(){
+    const {usuario, contra} =this.horizontalStepperForm.value
+    console.log(usuario+" "+contra)
+    this.router.navigate(['/pwa']);
   }
 }

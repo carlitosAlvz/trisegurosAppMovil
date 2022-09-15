@@ -14,13 +14,17 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'register-form',
     loadChildren: () => import('./pages/register-form/register-form.module').then( m => m.RegisterFormPageModule)
   },
   {
+
     path: 'face-id',
-    loadChildren: () => import('./pages/face-id/face-id.module').then( m => m.FaceIdPageModule)
+    loadChildren: () => import('./pages/face-id/face-id.module').then( m => m.FaceIdPageModule)},
+    {path: 'pwa',
+    loadChildren: () => import('./pages/pwa/pwa.module').then( m => m.PwaPageModule)
   },
 
 
