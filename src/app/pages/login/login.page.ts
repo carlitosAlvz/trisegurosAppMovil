@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPage implements OnInit {
   bandBotones: Boolean = true;
   bandLogin: Boolean = false;
+  bandForm: Boolean = false;
   constructor() { 
   }
 
@@ -16,7 +17,8 @@ export class LoginPage implements OnInit {
   }
   cambiodeInterfaz(){
     this.bandBotones = false;
-    this.bandLogin = true;
+    this.bandLogin = false;
+    this.bandForm = true;
     
   }
 }

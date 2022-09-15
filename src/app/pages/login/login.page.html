@@ -17,6 +17,26 @@
     <div> <a href="#" class="link">Aviso de privacidad</a> </div>   
   </div>
 
+  <div class="FormLogin" *ngIf="bandForm">
+    <div class="usuario">
+      <label for="">Usuario</label>
+      <input type="text" class="input2">
+    </div>
+
+    <div class="contraseña">
+      <label for="">Contraseña</label>
+      <div style="display: flex; flex-direction: row; margin-top: 2%;">
+          <input type="password"  placeholder="XXXXXXXXXXXXX">
+          <button > <img src="../../../assets/icon/login.png" alt="no image"></button>      
+      </div>
+    </div>
+
+    <div style="margin-top: 8%;">
+      <button id="btn3">Aún no tengo cuenta</button>
+    </div>
+    <div style="margin-top: 8%;"> <a href="#" class="link">Aviso de privacidad</a> </div> 
+  </div>
+
   <div class="login" *ngIf="bandLogin">
     <div class="elementos1">
        <div class="username">Hola, Jennifer O´Hara</div>
@@ -41,7 +61,7 @@
         </ion-row>
       </ion-grid>
     </div>
-    <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div> 
+    <div style="margin-top: 10%;"> <a href="#" class="link" >Aviso de privacidad</a> </div> 
   </div>
   </div>
 
