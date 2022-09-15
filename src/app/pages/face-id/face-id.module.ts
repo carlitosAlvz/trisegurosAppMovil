@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { NativeBiometric } from 'capacitor-native-biometric';
 import { IonicModule } from '@ionic/angular';
 
 import { FaceIdPageRoutingModule } from './face-id-routing.module';
