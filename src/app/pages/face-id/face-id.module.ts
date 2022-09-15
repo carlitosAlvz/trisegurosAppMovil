@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { NativeBiometric } from 'capacitor-native-biometric';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { FaceIdPageRoutingModule } from './face-id-routing.module';
 
-import { LoginPage } from './login.page';
+import { FaceIdPage } from './face-id.page';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    FaceIdPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [FaceIdPage]
 })
-export class LoginPageModule {
+export class FaceIdPageModule {
   
-
 }

@@ -1,25 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { NativeBiometric, AvailableResult } from 'capacitor-native-biometric';
+import {
+  AvailableResult,
+  BiometryType,
+  NativeBiometric,
+} from 'capacitor-native-biometric';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-face-id',
+  templateUrl: './face-id.page.html',
+  styleUrls: ['./face-id.page.scss'],
 })
-export class LoginPage implements OnInit {
-  bandBotones: Boolean = true;
-  bandLogin: Boolean = false;
-  bandForm: Boolean = false;
-  constructor() { 
-  }
+export class FaceIdPage implements OnInit {
+
+  constructor() { }
 
   ngOnInit() {
-  
-  }
-  cambiodeInterfaz(){
-    this.bandBotones = false;
-    this.bandForm = false;
-    this.bandLogin = true;
-    this.setCredential()
   }
 
   setCredential() {
@@ -41,6 +36,7 @@ export class LoginPage implements OnInit {
   checkCredential() {
     NativeBiometric.isAvailable().then((result: AvailableResult) => {
       const isAvailable = result.isAvailable;
+      alert('RESULT ' + JSON.stringify(result));
       // const isFaceId=result.biometryType==BiometryType.FACE_ID;
       // const isFaceId = result.biometryType == BiometryType.FACE_ID;
 
@@ -49,12 +45,13 @@ export class LoginPage implements OnInit {
         NativeBiometric.getCredentials({
           server: 'www.example.com',
         }).then((credentials) => {
+          alert('CREDENTIAL ' + JSON.stringify(credentials));
           // Authenticate using biometrics before logging the user in
           NativeBiometric.verifyIdentity({
             reason: 'For easy log in',
-            title: 'Tri Seguros',
-            subtitle: 'Ingrese su huella digital',
-            description: '',
+            title: 'Log in',
+            subtitle: 'Maybe add subtitle here?',
+            description: 'Maybe a description too?',
           })
             .then(() => {
               //     // Authentication successful
