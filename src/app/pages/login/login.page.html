@@ -9,62 +9,6 @@
     </div>
 
 
-   
-  <h1 id="titulo" class="titulos">Tri Seguros</h1>
-
-
-  <div class="botones" *ngIf="bandBotones">
-    <div> <button class="btn1" (click) = "cambiodeInterfaz()">Iniciar Sesión</button> </div>
-    <div>   <button class="btn2" routerLink="/register">Registrame</button> </div>
-    <div> <a href="#" class="link">Aviso de privacidad</a> </div>   
-  </div>
-
-  <div class="FormLogin" *ngIf="bandForm">
-    <div class="usuario">
-      <label for="">Usuario</label>
-      <input type="text" class="input2">
-    </div>
-
-    <div class="contraseña">
-      <label for="">Contraseña</label>
-      <div style="display: flex; flex-direction: row; margin-top: 2%;">
-          <input type="password"  placeholder="XXXXXXXXXXXXX">
-          <button > <img src="../../../assets/icon/login.png" alt="no image"></button>      
-      </div>
-    </div>
-
-    <div style="margin-top: 8%;">
-      <button id="btn3">Aún no tengo cuenta</button>
-    </div>
-    <div style="margin-top: 8%;"> <a href="#" class="link">Aviso de privacidad</a> </div> 
-  </div>
-
-  <div class="login" *ngIf="bandLogin">
-    <div class="elementos1">
-       <div class="username">Hola, Jennifer O´Hara</div>
-       <a href="#"class="link2">no es mi cuenta</a>
-    </div>
-    <div class="elementos2">
-      <form action="">
-        <input type="password" class="input" placeholder="************">
-        <button class="boton"> <img src="../../../assets/icon/login.png" alt="no image"></button>
-      </form>
-    </div>
-
-    <div class="elementos3">
-      <ion-grid>
-        <ion-row>
-          <ion-col style="margin-left: 20%;">
-            <button class="finger" (click)="checkCredential()"><img src="../../../assets/images/Vector.png" alt=""></button>
-          </ion-col>
-          <ion-col style="margin-right: 20%;">
-            <button class="face"></button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div style="margin-top: 10%;"> <a href="#" class="link" >Aviso de privacidad</a> </div> 
-  </div>
 
     <h1 id="titulo" class="titulos">Tri Seguros</h1>
 
@@ -75,15 +19,39 @@
       <div> <a href="#" class="link">Aviso de privacidad</a> </div>
     </div>
 
-    <div class="login" *ngIf="bandLogin">
+    <div class="FormLogin" *ngIf="bandForm">
+      <form action="" [formGroup]="horizontalStepperForm">
+        <div class="usuario">
+          <label for="">Usuario</label>
+          <input type="text" formControlName="usuario" class="input2">
+        </div>
 
+        <div class="contraseña">
+          <label for="">Contraseña</label>
+          <div style="display: flex; flex-direction: row; margin-top: 2%;">
+            <input type="password" formControlName="contra" placeholder="XXXXXXXXXXXXX">
+            <button (click)="enviarDatos()"> <img src="../../../assets/icon/login.png" alt="no image"></button>
+          </div>
+        </div>
+      </form>
+
+
+      <div style="margin-top: 8%;">
+        <button id="btn3">Aún no tengo cuenta</button>
+      </div>
+      <div style="margin-top: 8%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+    </div>
+
+    <div class="login" *ngIf="bandLogin">
+      <div class="elementos1">
+        <div class="username">Hola, {{name}}</div>
+        <a href="#" class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
+      </div>
       <div class="elementos2">
-        <form [formGroup]="horizontalStepperForm">
-          <input formControlName="usuario" type="text" class="input" placeholder="Ingrese correo">
-          <input formControlName="contra" type="password" class="input" placeholder="************">
-          <button class="boton" (click)="enviarDatos()"
-            [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid"> <img
-              src="../../../assets/icon/login.png" alt="no image"></button>
+        <form action="">
+          <input type="password" class="input" placeholder="************">
+          <button class="boton" (click)="enviarDatos()"> <img src="../../../assets/icon/login.png"
+              alt="no image"></button>
         </form>
       </div>
 
@@ -91,10 +59,11 @@
         <ion-grid>
           <ion-row>
             <ion-col style="margin-left: 20%;">
-              <button class="finger"><img src="../../../assets/images/Vector.png" alt=""></button>
+              <button class="finger" (click)="checkCredential()"><img src="../../../assets/images/Vector.png"
+                  alt=""></button>
             </ion-col>
             <ion-col style="margin-right: 20%;">
-              <button class="face"></button>
+              <button class="face" (click)="checkCredentialFaceId()"></button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -102,6 +71,5 @@
       <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
     </div>
   </div>
-  
 
 </ion-content>

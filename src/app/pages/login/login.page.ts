@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NativeBiometric, AvailableResult } from 'capacitor-native-biometric';
+import { NativeBiometric, AvailableResult, BiometryType } from 'capacitor-native-biometric';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router,ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Plugins, PluginResultError } from '@capacitor/core';
 
 @Component({
   selector: 'app-login',
@@ -13,29 +14,38 @@ export class LoginPage implements OnInit {
   bandBotones: Boolean = true;
   bandLogin: Boolean = false;
   bandForm: Boolean = false;
-
+  name: string = ""
   horizontalStepperForm = new FormGroup({
     usuario: new FormControl('', Validators.required),
     contra: new FormControl('', Validators.required),
   })
   constructor(private route: ActivatedRoute,
-    private router: Router  ) { 
+    private router: Router) {
   }
 
   ngOnInit() {
+
   }
-  cambiodeInterfaz(){
-    this.bandBotones = false;
-    this.bandForm = false;
-    this.bandLogin = true;
+  cambiodeInterfaz() {
+    if (localStorage.length == 0) {
+      this.bandBotones = false;
+      this.bandForm = true;
+      this.bandLogin = false;
+    } else {
+      this.name = localStorage.getItem("usuario")
+      this.bandBotones = false;
+      this.bandForm = false;
+      this.bandLogin = true;
+    }
+
     this.setCredential()
   }
 
   setCredential() {
     // Save user's credentials
     NativeBiometric.setCredentials({
-      username: 'username',
-      password: 'password',
+      username: localStorage.getItem("usuario"),
+      password: localStorage.getItem("contraseña"),
       server: 'www.example.com',
     }).then();
   }
@@ -50,9 +60,6 @@ export class LoginPage implements OnInit {
   checkCredential() {
     NativeBiometric.isAvailable().then((result: AvailableResult) => {
       const isAvailable = result.isAvailable;
-      // const isFaceId=result.biometryType==BiometryType.FACE_ID;
-      // const isFaceId = result.biometryType == BiometryType.FACE_ID;
-
       if (isAvailable) {
         // Get user's credentials
         NativeBiometric.getCredentials({
@@ -67,21 +74,49 @@ export class LoginPage implements OnInit {
           })
             .then(() => {
               //     // Authentication successful
-              alert('SUCCESS!!');
+              this.router.navigate(['/pwa']);
               //     // this.login(credentials.username, credentials.password);
             })
             .catch((err) => {
               //   // Failed to authenticate
-              alert('FAIL!');
+              alert('La huella no coincide');
             });
         });
       }
     });
   }
 
-  enviarDatos(){
-    const {usuario, contra} =this.horizontalStepperForm.value
-    console.log(usuario+" "+contra)
+  enviarDatos() {
+    const { usuario, contra } = this.horizontalStepperForm.value
+    localStorage.setItem("usuario", usuario)
+    localStorage.setItem("contraseña", contra)
+    console.log(usuario + " " + contra)
     this.router.navigate(['/pwa']);
   }
+
+  eliminarCuenta(){
+    this.bandBotones= true;
+    this.bandLogin = false;
+    this.bandForm = false;
+    localStorage.clear()
+  }
+
+  checkCredentialFaceId() {
+    const { FaceId } = Plugins;
+
+    // check if device supports Face ID or Touch ID
+    FaceId.isAvailable().then(checkResult => {
+      if (checkResult.value) {
+        FaceId.auth().then(() => {
+          console.log('authenticated');
+        }).catch((error: PluginResultError) => {
+          // handle rejection errors
+          console.error(error.message);
+        });
+      } else {
+        // use custom fallback authentication here
+      }
+    });
+  }
+
 }
