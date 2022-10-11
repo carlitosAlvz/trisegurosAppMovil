@@ -6,64 +6,87 @@
   <div class="app-info">
     <form [formGroup]="horizontalStepperForm">
       <ion-row>
-        <label >Nombre completo</label>
+        <label>Nombre completo</label>
       </ion-row>
       <ion-row>
         <input type="text" formControlName="nombre">
       </ion-row>
       <ion-row>
-        <label >Celular</label>
+        <label>Celular</label>
       </ion-row>
-      <ion-row  >
-        <ion-col size="4" style="margin-bottom:1%;"><select name="select" formControlName="lada">
-          <option value="+52" selected>+52</option>
-          <option value="value 2">Value 2</option>
-          <option value="value 3">Value 3</option>
-        </select></ion-col>
+      <ion-row>
+        <ion-col size="4" style="margin-bottom:1%;"><select formControlName="lada">
+            <option [selected]="true" value="+52">+52</option>
+            <option value="+1">+1</option>
+            <option value="+51">+51</option>
+            <option value="+57">+57</option>
+            <option value="+56">+56</option>
+            <option value="+58">+58</option>
+            <option value="+598">+598</option>
+          </select></ion-col>
         <ion-col><input type="text" formControlName="numero_telefono"></ion-col>
       </ion-row>
       <ion-row>
-        <label >Correo electronico</label>
+        <label>Correo electrónico</label>
       </ion-row>
       <ion-row>
         <input type="email" formControlName="correo">
       </ion-row>
       <ion-row>
-        <label >RFC con Homoclave</label>
+        <label>RFC con Homoclave</label>
       </ion-row>
       <ion-row>
         <input type="text" placeholder="xxxx000000xxx" formControlName="rfc">
       </ion-row>
       <ion-row>
-        <label >Fecha de nacimiento</label>
+        <label>Fecha de nacimiento</label>
       </ion-row>
       <ion-row>
-        <input type="text" placeholder="DD/MM/AAAA" formControlName="fecha_nacimiento">
+        <ion-col size="3">
+          <select id="inputState" class="form-control" formControlName="dias">
+            <option *ngFor="let item of dias" [value]="item">{{item}}</option>
+          </select>
+        </ion-col>
+        <ion-col>
+          <select id="inputState" (change)="actualizarDias()"  class="form-control" formControlName="meses">
+            <option *ngFor="let item of meses" [value]="item">{{item}}</option>
+          </select>
+        </ion-col>
+        <ion-col size="4">
+          <select id="inputState" class="form-control" formControlName="years">
+            <option *ngFor="let item of years" [value]="item">{{item}}</option>
+          </select>
+        </ion-col>
       </ion-row>
       <ion-row>
-        <label >Contraseña</label>
+        <label>Contraseña</label>
       </ion-row>
       <ion-row>
         <input type="password" placeholder="**********" formControlName="contra">
       </ion-row>
       <ion-row>
-        <label >Confirmar contraseña</label>
+        <label>Confirmar contraseña</label>
       </ion-row>
       <ion-row>
-        <input type="password" placeholder="**********" formControlName="confirmar_contra">
+        <input type="password" (change)="revisarContras()" placeholder="**********" formControlName="confirmar_contra">
       </ion-row>
       <ion-row>
-        <ion-col size="1"><input type="checkbox" class="check" formControlName="aviso_privacidad"></ion-col>
-        <ion-col size="9"><label style="font-size: 12px;" class="politicas">Acepto haber leído el <a style="text-decoration-line: underline;"> Aviso de Privacidad</a></label></ion-col>
+        <label *ngIf="bandContra==1" style="color:red">Las contraseñas no coinciden</label>
+        <label *ngIf="bandContra==2" style="color: green;">Las contraseñas coinciden</label>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"><input type="checkbox" class="check" (change)="terminos()" formControlName="aviso_privacidad"></ion-col>
+        <ion-col size="9"><label style="font-size: 12px;" class="politicas">Acepto haber leído el <a
+              style="text-decoration-line: underline;"> Aviso de Privacidad</a></label></ion-col>
       </ion-row>
       <ion-row class="button">
         <button (click)="enviarRegistro()"
-        [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid">Registrarme</button>
+        (click)="enviarRegistro()"  [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid || bandAviso">Registrarme</button>
       </ion-row>
       <ion-row class="button">
-        <a class="cuenta">Ya tengo una cuenta</a>
+        <a class="cuenta" (click)="regresarInicio()">Ya tengo una cuenta</a>
       </ion-row>
-    </form>    
+    </form>
   </div>
 
 </ion-content>

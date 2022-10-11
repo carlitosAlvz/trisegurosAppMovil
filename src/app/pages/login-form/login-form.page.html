@@ -1,31 +1,16 @@
-<ion-header>
-
-</ion-header>
-
-<ion-content class="contenido">
+<ion-header></ion-header>
+<ion-content class="contenido" id="contenido">
   <div class="app-info">
     <div class="rectangulo">
       <img src="../../../assets/images/logo.jpg" class="image" width="150" height="150">
     </div>
-
-
-
     <h1 id="titulo" class="titulos">Tri Seguros</h1>
-
-
-    <div class="botones" *ngIf="bandBotones">
-      <div> <button class="btn1" (click)="cambiodeInterfaz()">Iniciar Sesión</button> </div>
-      <div> <button class="btn2" routerLink="/register">Registrame</button> </div>
-      <div> <a href="#" class="link">Aviso de privacidad</a> </div>
-    </div>
-
     <div class="FormLogin" *ngIf="bandForm">
       <form action="" [formGroup]="horizontalStepperForm">
         <div class="usuario">
           <label for="">Usuario</label>
           <input type="text" formControlName="usuario" class="input2">
         </div>
-
         <div class="contraseña">
           <label for="">Contraseña</label>
           <div style="display: flex; flex-direction: row; margin-top: 2%;">
@@ -45,7 +30,7 @@
     <div class="login" *ngIf="bandLogin">
       <div class="elementos1">
         <div class="username">Hola, {{name}}</div>
-        <a href="#" class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
+        <a class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
       </div>
       <div class="elementos2">
         <form action="">

@@ -26,6 +26,11 @@ const routes: Routes = [
     {path: 'pwa',
     loadChildren: () => import('./pages/pwa/pwa.module').then( m => m.PwaPageModule)
   },
+  {
+    path: 'login-form',
+    loadChildren: () => import('./pages/login-form/login-form.module').then( m => m.LoginFormPageModule)
+  },
+
 
 
 ];

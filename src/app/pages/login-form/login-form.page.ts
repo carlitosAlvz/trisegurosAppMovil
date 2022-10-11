@@ -1,34 +1,67 @@
+
 import { Component, OnInit } from '@angular/core';
 import { NativeBiometric, AvailableResult, BiometryType } from 'capacitor-native-biometric';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Plugins, PluginResultError } from '@capacitor/core';
-
+import { UserLoginService } from '../../api/user-login.service';
+import { HomePageService } from '../../api/home-page.service'
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-login-form',
+  templateUrl: './login-form.page.html',
+  styleUrls: ['./login-form.page.scss'],
 })
-export class LoginPage implements OnInit {
-  bandBotones: Boolean = true;
+export class LoginFormPage implements OnInit {
+
   bandLogin: Boolean = false;
-  bandForm: Boolean = false;
+  bandForm: Boolean = true;
   name: string = ""
   horizontalStepperForm = new FormGroup({
     usuario: new FormControl('', Validators.required),
     contra: new FormControl('', Validators.required),
   })
   constructor(private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router, private apis: UserLoginService, private apiHome: HomePageService) {
   }
 
   ngOnInit() {
+    if (localStorage.length == 0) {
+      this.bandLogin = false;
+      this.bandForm = true;
+    } else {
+      this.bandLogin = true;
+      this.bandForm = false;
+      this.name = localStorage.getItem("usuario");
+    }
 
   }
-  cambiodeInterfaz() {
-    this.setCredential()
-    this.router.navigate(['/login-form']);
+
+
+
+
+  enviarDatos() {
+    if (localStorage.length == 0) {
+      const { usuario, contra } = this.horizontalStepperForm.value
+      localStorage.setItem("usuario", usuario)
+      localStorage.setItem("contraseña", contra)
+      this.apis.postLogin(usuario, contra).subscribe((res: any) => {
+        localStorage.setItem("user_id", res.user_id)
+        localStorage.setItem("user_token", res.user_token)
+        this.router.navigate(['/pwa']);
+      });
+
+    } else {
+      this.router.navigate(['/pwa']);
+    }
+
+  }
+
+  eliminarCuenta() {
+    this.bandLogin = false;
+    this.bandForm = true;
+    localStorage.clear()
+    this.router.navigate(['/']);
   }
 
   setCredential() {
@@ -74,21 +107,6 @@ export class LoginPage implements OnInit {
         });
       }
     });
-  }
-
-  enviarDatos() {
-    const { usuario, contra } = this.horizontalStepperForm.value
-    localStorage.setItem("usuario", usuario)
-    localStorage.setItem("contraseña", contra)
-    console.log(usuario + " " + contra)
-    this.router.navigate(['/pwa']);
-  }
-
-  eliminarCuenta(){
-    this.bandBotones= true;
-    this.bandLogin = false;
-    this.bandForm = false;
-    localStorage.clear()
   }
 
   checkCredentialFaceId() {
