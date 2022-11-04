@@ -255,6 +255,10 @@ margin-left: 8%;
     
 }
 
+a{
+    color:#00042A;
+}
+
 .finger{
 padding: 10% 10% 10% 10%;
 background: rgba(255, 255, 255, 0.6);
@@ -269,4 +273,8 @@ height: 60px;
 border: 1px solid #2387E9;
 border-radius: 7px;
 background: url('../../../assets/images/face.png');
+}
+
+input{
+    font-family: "Arsenal";
 }

@@ -20,7 +20,7 @@ export class PwaPage implements OnInit {
     this.user_token = localStorage.getItem("user_token")
     this.path = 'https://triseguros.clubmaple.com/' + this.user_id + '/' + this.user_token
     this.pathDangerously= this.sanitizer.bypassSecurityTrustResourceUrl(this.path)
-    alert(this.user_id+"/// "+this.user_token)
+    
   }
 
 }

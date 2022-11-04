@@ -17,44 +17,47 @@
       <ion-row>
         <ion-col size="4" style="margin-bottom:1%;"><select formControlName="lada">
             <option [selected]="true" value="+52">+52</option>
-            <option value="+1">+1</option>
-            <option value="+51">+51</option>
-            <option value="+57">+57</option>
-            <option value="+56">+56</option>
-            <option value="+58">+58</option>
-            <option value="+598">+598</option>
+            <option value=1>+1</option>
+            <option value=51>+51</option>
+            <option value=57>+57</option>
+            <option value=56>+56</option>
+            <option value=58>+58</option>
+            <option value=598>+598</option>
           </select></ion-col>
-        <ion-col><input type="text" formControlName="numero_telefono"></ion-col>
+        <ion-col><input id="inputPhone" (change)="phoneChange()" type="text" formControlName="numero_telefono"></ion-col>
       </ion-row>
       <ion-row>
         <label>Correo electrónico</label>
       </ion-row>
       <ion-row>
-        <input type="email" formControlName="correo">
+        <input id="inputEmail" (change)="emailChange()" type="email" formControlName="correo">
       </ion-row>
       <ion-row>
         <label>RFC con Homoclave</label>
       </ion-row>
       <ion-row>
-        <input type="text" placeholder="xxxx000000xxx" formControlName="rfc">
+        <input id="inputRfc" style="margin-bottom: 1%;" type="text" (change)="rfcChange()" placeholder="xxxx000000xxx" formControlName="rfc">
       </ion-row>
       <ion-row>
-        <label>Fecha de nacimiento</label>
+        <label style="color:red" *ngIf="bandRFC==1">El formato de RFC es incorrecto</label>
+      </ion-row>
+      <ion-row>
+        <label style="margin-top: 3%;" >Fecha de nacimiento</label>
       </ion-row>
       <ion-row>
         <ion-col size="3">
           <select id="inputState" class="form-control" formControlName="dias">
-            <option *ngFor="let item of dias" [value]="item">{{item}}</option>
+            <option *ngFor="let item of dias;index as i" [value]="i+1">{{item}}</option>
           </select>
         </ion-col>
         <ion-col>
           <select id="inputState" (change)="actualizarDias()"  class="form-control" formControlName="meses">
-            <option *ngFor="let item of meses" [value]="item">{{item}}</option>
+            <option *ngFor="let item of meses;index as i" [value]="i">{{item}}</option>
           </select>
         </ion-col>
         <ion-col size="4">
-          <select id="inputState" class="form-control" formControlName="years">
-            <option *ngFor="let item of years" [value]="item">{{item}}</option>
+          <select id="inputState"  class="form-control" formControlName="years">
+            <option *ngFor="let item of years; index as i" [value]="item">{{item}}</option>
           </select>
         </ion-col>
       </ion-row>
@@ -62,7 +65,7 @@
         <label>Contraseña</label>
       </ion-row>
       <ion-row>
-        <input type="password" placeholder="**********" formControlName="contra">
+        <input type="password"  placeholder="**********" formControlName="contra">
       </ion-row>
       <ion-row>
         <label>Confirmar contraseña</label>
@@ -71,13 +74,16 @@
         <input type="password" (change)="revisarContras()" placeholder="**********" formControlName="confirmar_contra">
       </ion-row>
       <ion-row>
-        <label *ngIf="bandContra==1" style="color:red">Las contraseñas no coinciden</label>
-        <label *ngIf="bandContra==2" style="color: green;">Las contraseñas coinciden</label>
+        <label *ngIf="bandContra==1" style="color:red"><b>Las contraseñas no coinciden</b></label>
+        <label *ngIf="bandContra==2" style="color: green;"><b>Las contraseñas coinciden</b></label>
       </ion-row>
       <ion-row>
         <ion-col size="1"><input type="checkbox" class="check" (change)="terminos()" formControlName="aviso_privacidad"></ion-col>
-        <ion-col size="9"><label style="font-size: 12px;" class="politicas">Acepto haber leído el <a
+        <ion-col size="9"><label style="font-size: 12px;" class="politicas">Acepto haber leído el <a routerLink="/aviso-privacidad"
               style="text-decoration-line: underline;"> Aviso de Privacidad</a></label></ion-col>
+      </ion-row>
+      <ion-row>
+        <label *ngIf="bandRegisterFail" style="color:rgb(235, 49, 49);"><b>{{messageError}}</b></label>
       </ion-row>
       <ion-row class="button">
         <button (click)="enviarRegistro()"

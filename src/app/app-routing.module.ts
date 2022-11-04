@@ -30,6 +30,15 @@ const routes: Routes = [
     path: 'login-form',
     loadChildren: () => import('./pages/login-form/login-form.module').then( m => m.LoginFormPageModule)
   },
+  {
+    path: 'aviso-privacidad',
+    loadChildren: () => import('./pages/aviso-privacidad/aviso-privacidad.module').then( m => m.AvisoPrivacidadPageModule)
+  },  {
+    path: 'recovery-password',
+    loadChildren: () => import('./pages/recovery-password/recovery-password.module').then( m => m.RecoveryPasswordPageModule)
+  },
+
+
 
 
 

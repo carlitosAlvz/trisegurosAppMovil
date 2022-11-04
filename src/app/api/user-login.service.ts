@@ -9,7 +9,7 @@ export class UserLoginService {
   constructor(private httpClient: HttpClient, private httpHeaders:HttpClientModule) { }
 
   postLogin(user:string, password:string):any{
-    const body={user:user, password:password};
+    const body={email:user, password:password};
     const headers = new HttpHeaders({
       'cb-token': 'HFJJ533/(S(*'     
     });

@@ -16,7 +16,7 @@
     <div class="botones" *ngIf="bandBotones">
       <div> <button class="btn1" (click)="cambiodeInterfaz()">Iniciar Sesión</button> </div>
       <div> <button class="btn2" routerLink="/register">Registrame</button> </div>
-      <div> <a href="#" class="link">Aviso de privacidad</a> </div>
+      <div> <a style="color: #00042A;" routerLink="/aviso-privacidad" class="link">Aviso de privacidad</a> </div>
     </div>
 
     <div class="FormLogin" *ngIf="bandForm">
@@ -39,13 +39,13 @@
       <div style="margin-top: 8%;">
         <button (click)="eliminarCuenta()" id="btn3">Aún no tengo cuenta</button>
       </div>
-      <div style="margin-top: 8%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+      <div style="margin-top: 8%;"> <a style="color:#00042A;" href="https://blog.clubmaple.com/avisos-de-privacidad/" class="link">Aviso de privacidad</a> </div>
     </div>
 
     <div class="login" *ngIf="bandLogin">
       <div class="elementos1">
         <div class="username">Hola, {{name}}</div>
-        <a href="#" class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
+        <a  class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
       </div>
       <div class="elementos2">
         <form action="">
@@ -68,7 +68,7 @@
           </ion-row>
         </ion-grid>
       </div>
-      <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+      <div style="margin-top: 10%;"> <a href="https://blog.clubmaple.com/avisos-de-privacidad/" class="link">Aviso de privacidad</a> </div>
     </div>
   </div>
 

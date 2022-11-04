@@ -13,17 +13,17 @@
         <p><b>Código de Agente</b></p>
       </div>
       <div>
-        <form action="">
-          <input type="text" placeholder="XXXXXXXXXX">
+        <form [formGroup]="horizontalStepperForm">
+          <input formControlName="code_agent" type="text" placeholder="XXXXXXXXXX">
         </form>
       </div>
     </div>
     <div class="btn-w">
-      <button><img src="../../../assets/icon/akar-icons_whatsapp-fill.png"> No tengo código de agente</button>
+      <button style="color:white"><img src="../../../assets/icon/akar-icons_whatsapp-fill.png"> No tengo código de agente</button>
     </div>
-    <div> <button  class="btn-continuar" routerLink="/register-form">Continuar</button>  </div>
+    <div> <button [disabled]="horizontalStepperForm.pristine || horizontalStepperForm.invalid"  class="btn-continuar" (click)="obtenerCodigoAgente()" >Continuar</button>  </div>
     <div>
-      <a href="">Aviso de privacidad</a>
+      <a routerLink="/aviso-privacidad">Aviso de privacidad</a>
     </div>
   </div>
 

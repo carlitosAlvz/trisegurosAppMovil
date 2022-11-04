@@ -9,7 +9,9 @@ ion-content.contenido {
 @font-face { font-family: Arsenal-Regular; 
     src: url("../../../assets/fonts/Arsenal-Regular.otf"); 
 }
-
+label{
+    color:white;
+}
 ion-row{
     height: 10%;
     align-items: center;
@@ -105,4 +107,17 @@ label{
 
 a{
     text-decoration-line: underline;
+    color: white;
+}
+
+
+button{
+    color:white;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #c0c0c0;
+  background-color: #575656;
+  color: #a3a3a3;
 }

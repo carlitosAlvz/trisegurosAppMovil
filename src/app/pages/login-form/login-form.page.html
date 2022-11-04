@@ -8,7 +8,7 @@
     <div class="FormLogin" *ngIf="bandForm">
       <form action="" [formGroup]="horizontalStepperForm">
         <div class="usuario">
-          <label for="">Usuario</label>
+          <label for="">Correo electrónico o número de telefono </label>
           <input type="text" formControlName="usuario" class="input2">
         </div>
         <div class="contraseña">
@@ -17,44 +17,48 @@
             <input type="password" formControlName="contra" placeholder="XXXXXXXXXXXXX">
             <button (click)="enviarDatos()"> <img src="../../../assets/icon/login.png" alt="no image"></button>
           </div>
+          <label *ngIf="bandFail" style="margin-top: 2%; color:rgb(235, 49, 49);">Contraseña o usuario incorrecto</label>
+          <div *ngIf="bandFail"><a style="margin-top: 2%;" routerLink="/recovery-password" class="link" >Olvide mi contraseña</a></div>
         </div>
+        
       </form>
 
 
       <div style="margin-top: 8%;">
-        <button (click)="eliminarCuenta()" id="btn3">Aún no tengo cuenta</button>
+        <button (click)="eliminarCuenta()" id="btn3" style="font-size: large;">Aún no tengo cuenta</button>
       </div>
-      <div style="margin-top: 8%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+      <div style="margin-top: 8%;"> <a style="color:#00042A;" routerLink="/aviso-privacidad" class="link">Aviso de privacidad</a> </div>
     </div>
 
     <div class="login" *ngIf="bandLogin">
       <div class="elementos1">
         <div class="username">Hola, {{name}}</div>
-        <a class="link2" (click)="eliminarCuenta()">no es mi cuenta</a>
+        <div style="margin-top: 2%;"><a class="link2"  (click)="eliminarCuenta()">no es mi cuenta</a></div>
+        
       </div>
       <div class="elementos2">
-        <form action="">
-          <input type="password" class="input" placeholder="************">
-          <button class="boton" (click)="enviarDatos()"> <img src="../../../assets/icon/login.png"
+        <form [formGroup]="horizontalStepperForm2">
+          <input type="password" formControlName="contraLocal" class="input" placeholder="************">
+          <button class="boton" (click)="enviarDatosLocal()"> <img src="../../../assets/icon/login.png"
               alt="no image"></button>
         </form>
+      </div>
+      <div *ngIf="bandFail">
+        <label  style="margin-top: 2%; color:rgb(235, 49, 49);">Contraseña o usuario incorrecto</label>
+        <div><a style="margin-top: 2%;" routerLink="/recovery-password" class="link" >Olvide mi contraseña</a></div>
       </div>
 
       <div class="elementos3">
         <ion-grid>
           <ion-row>
-            <ion-col style="margin-left: 20%;">
+            <ion-col style="margin-right: 7%;">
               <button class="finger" (click)="checkCredential()"><img src="../../../assets/images/Vector.png"
                   alt=""></button>
-            </ion-col>
-            <ion-col style="margin-right: 20%;">
-              <button class="face" (click)="checkCredentialFaceId()"></button>
             </ion-col>
           </ion-row>
         </ion-grid>
       </div>
-      <div style="margin-top: 10%;"> <a href="#" class="link">Aviso de privacidad</a> </div>
+      <div style="margin-top: 10%;"> <a style="color: #00042A;" routerLink="/aviso-privacidad" class="link">Aviso de privacidad</a> </div>
     </div>
   </div>
-
 </ion-content>
